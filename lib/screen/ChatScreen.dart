@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/UserModel.dart';
+import 'ChatRoom.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -34,6 +35,12 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: ListTile(
                     onTap: () {
                       print("${user.name} is tappped");
+                      // TODO: nevigate to chat room screen
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ChatRoom(
+                                name: user.name,
+                                avatar: user.avatar,
+                              )));
                     },
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(user.avatar),
